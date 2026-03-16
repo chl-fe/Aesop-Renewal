@@ -14,7 +14,8 @@
 
 #header .inner {
     width: 100%;
-    padding: 0 4%; /* 좌우 여백을 주어 양끝에 붙되 꽉 막히지 않게 조정 */
+    padding: 0 4%;
+    /* 좌우 여백을 주어 양끝에 붙되 꽉 막히지 않게 조정 */
     margin: 0 auto;
     /* 가운대로 정렬 필수 */
     display: flex;
@@ -52,8 +53,7 @@
     @extend .optima-16;
     transition: opacity 0.3s ease;
     display: inline-block;
-    padding: 24px 0;
-    /* hover 영역 확보용 패딩 */
+    padding: 12px 10px;
 }
 
 #header .depth1>li>a:hover {
