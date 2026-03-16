@@ -3,6 +3,10 @@
     "category": "Skin Care",
     "name": "루센트 페이셜 나이트 마스크",
     "description": "건성, 수분 부족 피부, 칙칙한 각질 피부, 여행을 자주 하는 피부에 이상적",
+    "badge": [
+      "Best",
+      "New"
+    ],
     "variants": [
       {
         "capacity": "60mL",
@@ -15,6 +19,7 @@
     "category": "Skin Care",
     "name": "퓨리파잉 페이셜 엑스폴리언트 페이스트",
     "description": "건성 피부, 여행을 자주 하거나 면도를 하는 피부, 겨울 및 쌀쌀한 날씨의 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "75 mL",
@@ -27,6 +32,9 @@
     "category": "Skin Care",
     "name": "카모마일 컨센트레이트 안티 블레미쉬 마스크",
     "description": "문제성 피부",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -39,6 +47,9 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 안티 옥시던트 페이셜 토너",
     "description": "건성, 심하지 않은 민감성 피부를 포함한 대부분의 피부 타입에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -56,6 +67,7 @@
     "category": "Skin Care",
     "name": "루센트 페이셜 리파이너",
     "description": "중성 피부, 건성 피부, 수분이 부족한 피부, 칙칙한 피부, 노화 피부",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -68,6 +80,9 @@
     "category": "Skin Care",
     "name": "페뷸러스 페이스 클렌저",
     "description": "중성, 복합성 피부, 더운 계절의 건성 피부에 이상적",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -85,6 +100,10 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 페이셜 클렌저",
     "description": "중성, 복합성, 문제성 피부",
+    "badge": [
+      "Best",
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -102,6 +121,7 @@
     "category": "Skin Care",
     "name": "프로텍티브 립 밤 SPF30",
     "description": "대부분의 피부 타입에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "5.5g",
@@ -114,6 +134,9 @@
     "category": "Skin Care",
     "name": "블루 카모마일 페이셜 하이드레이팅 마스크",
     "description": "건성, 수분 부족 피부, 여행을 자주 하는 피부에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -126,6 +149,7 @@
     "category": "Skin Care",
     "name": "라이트웨이트 페이셜 하이드레이팅 세럼",
     "description": "지성, 복합성, 민감성 피부, 여름 및 온난하고 습한 날씨의 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "100 mL",
@@ -138,6 +162,9 @@
     "category": "Skin Care",
     "name": "더블-엣지 레이저 블레이드",
     "description": "빈틈없는 쉐이빙을 도와주는 레이저 블레이드",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "쉐이빙 액세서리",
@@ -150,6 +177,9 @@
     "category": "Skin Care",
     "name": "인 투 마인즈 페이셜 클렌저",
     "description": "복합성 피부",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -167,6 +197,9 @@
     "category": "Skin Care",
     "name": "프로텍티브 바디 로션 SPF50",
     "description": "광범위한 스펙트럼의 자외선(UVA와 UVB)을 차단하는 가벼운 로션",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "150 mL",
@@ -179,6 +212,7 @@
     "category": "Skin Care",
     "name": "퍼펙트 페이셜 하이드레이팅 크림",
     "description": "중성, 건성 피부, 겨울 및 쌀쌀한 날씨의 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -191,6 +225,10 @@
     "category": "Skin Care",
     "name": "이매큘레이트 페이셜 토닉",
     "description": "수분 공급 및 각질 제거에 효과적인 비타민이 풍부한 토닉",
+    "badge": [
+      "New",
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -203,6 +241,9 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 안티 옥시던트 스킨 케어 키트",
     "description": "모든 피부 타입에 적합한 파슬리 씨드 키트",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "키트",
@@ -215,6 +256,7 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 안티 옥시던트 하이드레이터",
     "description": "중성, 건성, 복합성 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -227,6 +269,10 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 안티 옥시던트 인텐스 세럼",
     "description": "중성, 복합성, 민감성 피부, 도시 생활자의 피부, 덥고 습한 날씨의 피부에 이상적",
+    "badge": [
+      "Best",
+      "New"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -244,6 +290,7 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 안티 옥시던트 페이셜 트리트먼트",
     "description": "대부분의 피부 타입, 도시 생활자의 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "15 mL",
@@ -256,6 +303,9 @@
     "category": "Skin Care",
     "name": "이그절티드 아이 세럼",
     "description": "민감성, 노화, 수분 부족 피부, 칙칙한 각질 피부에 이상적",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "15 mL",
@@ -268,6 +318,7 @@
     "category": "Skin Care",
     "name": "페티그레인 리바이빙 바디 젤",
     "description": "신속하게 흡수되며 끈적이지 않는 마무리",
+    "badge": [],
     "variants": [
       {
         "capacity": "150 mL",
@@ -280,6 +331,9 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 안티 옥시던트 아이 크림",
     "description": "대부분의 피부 타입, 특히 건성 피부에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "10 mL",
@@ -292,6 +346,9 @@
     "category": "Skin Care",
     "name": "밸런스: 클래식 스킨 케어 키트",
     "description": "복합성 피부를 위한 균형 잡힌 구성",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "키트",
@@ -304,6 +361,7 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 클렌징 마스크",
     "description": "대부분의 피부 타입, 특히 건성 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -316,6 +374,9 @@
     "category": "Skin Care",
     "name": "만다린 페이셜 하이드레이팅 크림",
     "description": "중성 및 복합성 피부, 추운 기후의 지성 피부",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -328,6 +389,9 @@
     "category": "Skin Care",
     "name": "페뷸러스 페이스 오일",
     "description": "중성, 칙칙한 각질 피부에 이상적",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "25 mL",
@@ -340,6 +404,7 @@
     "category": "Skin Care",
     "name": "시더 & 시트러스 립 살브",
     "description": "대부분의 피부 타입, 특히 건조하고 갈라진 입술에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "9 mL",
@@ -352,6 +417,9 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 페이셜 클렌징 오일",
     "description": "건성, 복합성, 민감성 피부에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "200 mL",
@@ -364,6 +432,9 @@
     "category": "Skin Care",
     "name": "퀜치: 클래식 스킨 케어 키트",
     "description": "건성 피부를 위한 충분한 수분 공급",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "키트",
@@ -376,6 +447,7 @@
     "category": "Skin Care",
     "name": "비 앤 티 밸런싱 토너",
     "description": "민감성 피부를 포함한 대부분의 피부 타입에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "100 mL",
@@ -393,6 +465,9 @@
     "category": "Skin Care",
     "name": "프로텍티브 페이셜 로션 SPF30",
     "description": "대부분의 피부 타입에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -405,6 +480,7 @@
     "category": "Skin Care",
     "name": "파슬리 씨드 안티 옥시던트 페이셜 하이드레이팅 크림",
     "description": "대부분의 피부 타입, 특히 건성 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -417,6 +493,9 @@
     "category": "Skin Care",
     "name": "젠틀 페이셜 클렌징 밀크",
     "description": "건성, 민감성 피부에 이상적",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -434,6 +513,9 @@
     "category": "Skin Care",
     "name": "어메이징 페이스 클렌저",
     "description": "지성, 복합성, 넓은 모공 피부, 온난하고 습한 날씨의 피부에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -451,6 +533,9 @@
     "category": "Skin Care",
     "name": "인 투 마인즈 페이셜 토너",
     "description": "복합성 피부에 이상적",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -468,6 +553,7 @@
     "category": "Skin Care",
     "name": "시킹 사일런스 페이셜 하이드레이터",
     "description": "민감성 피부",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -480,6 +566,10 @@
     "category": "Skin Care",
     "name": "루센트 페이셜 컨센트레이트",
     "description": "대부분의 피부 타입에 이상적",
+    "badge": [
+      "Best",
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -497,6 +587,9 @@
     "category": "Skin Care",
     "name": "비 트리플 씨 페이셜 밸런싱 젤",
     "description": "복합성, 지성, 각질 피부, 온난하고 습한 날씨의 피부",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -509,6 +602,7 @@
     "category": "Skin Care",
     "name": "엘레멘탈 페이셜 배리어 크림",
     "description": "건성, 수분 부족, 민감성 피부, 춥고 혹독한 날씨의 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -521,6 +615,9 @@
     "category": "Skin Care",
     "name": "카멜리아 너트 페이셜 하이드레이팅 크림",
     "description": "중성, 건성, 민감성 피부",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -533,6 +630,7 @@
     "category": "Skin Care",
     "name": "모로칸 네롤리 쉐이빙 세럼",
     "description": "깔끔한 쉐이빙을 위한 세럼",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -550,6 +648,9 @@
     "category": "Skin Care",
     "name": "비터 오렌지 아스트린젠트 토너",
     "description": "지성 피부, 덥고 습한 날씨의 피부에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -567,6 +668,9 @@
     "category": "Skin Care",
     "name": "모로칸 네롤리 쉐이빙 듀엣",
     "description": "정교한 쉐이빙을 위한 제품 2종",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "키트",
@@ -579,6 +683,7 @@
     "category": "Skin Care",
     "name": "프로텍티브 페이셜 로션 SPF50+",
     "description": "대부분의 피부 타입에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "50 mL",
@@ -591,6 +696,9 @@
     "category": "Skin Care",
     "name": "더블 엣지 레이저",
     "description": "그립감이 뛰어난 면도기",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "쉐이빙 액세서리",
@@ -603,6 +711,9 @@
     "category": "Skin Care",
     "name": "다마스칸 로즈 페이셜 트리트먼트",
     "description": "건성, 극건성 피부, 스트레스받은 피부에 이상적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "25 mL",
@@ -615,6 +726,7 @@
     "category": "Skin Care",
     "name": "스테인리스 스틸 보울",
     "description": "소리 야나기(Sori Yanagi)의 디자인",
+    "badge": [],
     "variants": [
       {
         "capacity": "쉐이빙 액세서리",
@@ -627,6 +739,10 @@
     "category": "Skin Care",
     "name": "컨트롤",
     "description": "문제성 피부",
+    "badge": [
+      "Best",
+      "New"
+    ],
     "variants": [
       {
         "capacity": "9 mL",
@@ -639,6 +755,9 @@
     "category": "Skin Care",
     "name": "이미디에이트 모이스처 페이셜 하이드로졸",
     "description": "모든 피부 타입, 잦은 여행자, 직장인",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -651,6 +770,7 @@
     "category": "Skin Care",
     "name": "리무브",
     "description": "대부분의 피부 타입, 메이크업을 한 피부에 이상적",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -663,6 +783,9 @@
     "category": "Skin Care",
     "name": "인 투 마인즈 페이셜 하이드레이터",
     "description": "복합성 피부",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -675,6 +798,7 @@
     "category": "Skin Care",
     "name": "퓨리파잉 페이셜 크림 클렌저",
     "description": "중성, 건성 피부",
+    "badge": [],
     "variants": [
       {
         "capacity": "100 mL",
@@ -687,6 +811,9 @@
     "category": "Skin Care",
     "name": "쉐이빙 브러쉬",
     "description": "안목있는 쉐이버",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "쉐이빙 액세서리",
@@ -699,6 +826,9 @@
     "category": "Skin Care",
     "name": "프림로즈 페이셜 하이드레이팅 크림",
     "description": "중성 및 건성 피부, 겨울 혹은 시원한 날씨",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "60 mL",
@@ -711,6 +841,7 @@
     "category": "Body & Hand",
     "name": "볼류마이징 샴푸",
     "description": "얇은, 힘없는 모발",
+    "badge": [],
     "variants": [
       {
         "capacity": "500 mL (펌프 포함)",
@@ -723,6 +854,10 @@
     "category": "Body & Hand",
     "name": "레저렉션 아로마틱 핸드 워시",
     "description": "깔끔한, 거품이 적은, 젤 타입",
+    "badge": [
+      "Best",
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "500 mL (펌프 포함)",
@@ -740,6 +875,9 @@
     "category": "Hair",
     "name": "샴푸",
     "description": "대부분의 모발과 두피 타입에 이상적인 샴푸",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "500 mL",
@@ -762,6 +900,7 @@
     "category": "Hair",
     "name": "바이올렛 리프 헤어 밤",
     "description": "건조한, 거친 모발, 염색이나 펌을 한 모발에 이상적인 헤어 밤",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -774,6 +913,9 @@
     "category": "Hair",
     "name": "세이지 앤 시더 스칼프 트리트먼트",
     "description": "건조한, 가려운, 각질이 있는 두피",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "25 mL",
@@ -786,6 +928,9 @@
     "category": "Hair",
     "name": "샤인 헤어 앤 비어드 오일",
     "description": "거친, 건조한, 곱슬거리는, 두꺼운 모발",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "25 mL",
@@ -798,6 +943,7 @@
     "category": "Hair",
     "name": "테임 헤어 세럼",
     "description": "흩날리거나 부시시한 모발",
+    "badge": [],
     "variants": [
       {
         "capacity": "60 mL",
@@ -810,6 +956,9 @@
     "category": "Hair",
     "name": "컨디셔너",
     "description": "본질로 돌아가는 시작",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "100 mL",
@@ -832,6 +981,10 @@
     "category": "Hair",
     "name": "로즈 헤어 앤 스칼프 모이스처라이징 마스크",
     "description": "중성, 건성 모발, 연약한, 염색한, 펌을 한 모발",
+    "badge": [
+      "Exclusive",
+      "New"
+    ],
     "variants": [
       {
         "capacity": "120 mL",
@@ -849,6 +1002,7 @@
     "category": "Hair",
     "name": "이퀄라이징 샴푸",
     "description": "지성 두피, 도시 생활자 및 활동적인 사람의 두피에 이상적인 샴푸",
+    "badge": [],
     "variants": [
       {
         "capacity": "500 mL (펌프 포함)",
@@ -861,6 +1015,9 @@
     "category": "Hair",
     "name": "스컬프 헤어 폴리시",
     "description": "모든 모발 타입, 특히 젖은 모발 연출과 강력한 고정이 필요한 스타일링에 효과적",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "100mL",
@@ -873,6 +1030,10 @@
     "category": "Fragrance",
     "name": "마라케시 인텐스 오 드 퍼퓸",
     "description": "클로브, 샌달우드, 카다멈",
+    "badge": [
+      "Best",
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -890,6 +1051,9 @@
     "category": "Fragrance",
     "name": "휠 오 드 퍼퓸",
     "description": "사이프러스, 프랑킨센스, 베티버",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -907,6 +1071,9 @@
     "category": "Fragrance",
     "name": "테싯 오 드 퍼퓸",
     "description": "유자, 베티버 하트, 바질",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -924,6 +1091,9 @@
     "category": "Fragrance",
     "name": "어보브 어스, 스테오라 오 드 퍼퓸",
     "description": "카다멈, 바닐라 빈, 프랑킨센스",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -936,6 +1106,7 @@
     "category": "Fragrance",
     "name": "비레레 오 드 퍼퓸",
     "description": "시트러스, 그린, 우디",
+    "badge": [],
     "variants": [
       {
         "capacity": "50 mL",
@@ -948,6 +1119,9 @@
     "category": "Fragrance",
     "name": "로즈 오 드 퍼퓸",
     "description": "로즈, 시소, 과이악우드",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -960,6 +1134,10 @@
     "category": "Fragrance",
     "name": "프래그런스 앤솔러지 볼륨 I",
     "description": "",
+    "badge": [
+      "Best",
+      "New"
+    ],
     "variants": [
       {
         "capacity": "키트",
@@ -972,6 +1150,7 @@
     "category": "Fragrance",
     "name": "이더시스 오 드 퍼퓸",
     "description": "블랙 페퍼, 프랑킨센스, 샌달우드",
+    "badge": [],
     "variants": [
       {
         "capacity": "50 mL",
@@ -984,6 +1163,9 @@
     "category": "Fragrance",
     "name": "우라논 오 드 퍼퓸",
     "description": "프랑킨센스, 헤이, 미르",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -996,6 +1178,9 @@
     "category": "Fragrance",
     "name": "오르너 오 드 퍼퓸",
     "description": "매그놀리아 리프, 로만 카모마일, 시더 하트",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -1008,6 +1193,7 @@
     "category": "Fragrance",
     "name": "마라케시 인텐스 퍼퓸",
     "description": "클로브, 샌달우드, 카다멈",
+    "badge": [],
     "variants": [
       {
         "capacity": "10 mL",
@@ -1020,6 +1206,9 @@
     "category": "Fragrance",
     "name": "에레미아 오 드 퍼퓸",
     "description": "갈바눔, 아이리스, 유자",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -1032,6 +1221,7 @@
     "category": "Fragrance",
     "name": "카르스트 오 드 퍼퓸",
     "description": "주니퍼, 쿠민, 샌달우드",
+    "badge": [],
     "variants": [
       {
         "capacity": "50 mL",
@@ -1044,6 +1234,9 @@
     "category": "Fragrance",
     "name": "미라세티 오 드 퍼퓸",
     "description": "라다넘, 암브레트, 스타이어랙스",
+    "badge": [
+      "New"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -1056,6 +1249,9 @@
     "category": "Fragrance",
     "name": "글롬 오 드 퍼퓸",
     "description": "미모사, 사프란, 아이리스",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "50 mL",
@@ -1068,6 +1264,9 @@
     "category": "Home",
     "name": "레저렉션 아로마틱 핸드 밤",
     "description": "시트러스, 우드, 허브",
+    "badge": [
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "75 mL",
@@ -1085,6 +1284,7 @@
     "category": "Home",
     "name": "레저렉션 듀엣",
     "description": "시트러스, 우디, 허브 아로마가 어우러진 탁월한 핸드 케어 2종",
+    "badge": [],
     "variants": [
       {
         "capacity": "키트",
@@ -1097,6 +1297,10 @@
     "category": "Home",
     "name": "엘레오스 아로마틱 핸드 밤",
     "description": "허브, 우디, 스파이시",
+    "badge": [
+      "New",
+      "Best"
+    ],
     "variants": [
       {
         "capacity": "75 mL",
@@ -1114,6 +1318,9 @@
     "category": "Home",
     "name": "레버런스 아로마틱 핸드 워시",
     "description": "부드러운 손 세정을 선사하는 투명하고 거품이 적은 클렌징 젤",
+    "badge": [
+      "Exclusive"
+    ],
     "variants": [
       {
         "capacity": "500 mL (펌프 포함)",
@@ -1131,6 +1338,7 @@
     "category": "Home",
     "name": "제라늄 리프 바디 스크럽",
     "description": "피부를 깨끗하게 클렌징하고 매끄럽게 관리하는 굵은 입자의 스크럽 젤",
+    "badge": [],
     "variants": [
       {
         "capacity": "180 mL",
