@@ -1,0 +1,39 @@
+@import "../../../globals.scss";
+
+.bestboxSm {
+    width: 486px;
+    height: 554px;
+    background-color:$bg-product;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .badges {
+        display: flex;
+        gap: 8px;
+        padding: 20px 30px;
+        align-items: center;
+    }
+
+    .imgs {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    p {
+        @extend .suit-18-m;
+        color: $brown-700;
+        padding: 30px 40px;
+    }
+}
