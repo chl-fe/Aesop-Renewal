@@ -1,125 +1,174 @@
 @import "../../../globals.scss";
 
-/* ────────────────────────────────────────────────
-   Product Navigator 섹션 - 어두운 배경 + 카테고리 탐색
-──────────────────────────────────────────────── */
 .pnav {
-    background-color: $brown-900;
-    padding: 80px 4% 100px;
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 배경 이미지 레이어 */
+    &__bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+    }
+
+    /* 컬러 박스 오버레이 (bg-overlay 80%) */
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba($bg-overlay, 0.8);
+        z-index: 1;
+    }
 
     &__inner {
-        max-width: 1400px;
-        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1680px; // 시안에 맞춘 양측 최대 여백 제어용
+        padding: 0 4%;
         display: flex;
         flex-direction: column;
-        gap: 0;
+        align-items: center;
+        gap: 120px; // 위쪽 Product 타이틀 그룹과 아래 카테고리 그룹 간의 큰 간격
     }
 
-    /* 대형 타이틀 */
+    /* 상단 헤더 그룹 */
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        text-align: center;
+        gap: 20px;
+    }
+
     &__title {
         color: $oatmeal;
-        opacity: 0.08;       // 배경 오브제처럼
         margin: 0;
-        line-height: 0.85;
-        pointer-events: none;
-        letter-spacing: -0.02em;
-        // 화면 폭을 넘어가게 허용
-        white-space: nowrap;
-
-        @media (max-width: 1023px) {
-            font-size: 100px;
-        }
-
-        @media (max-width: 767px) {
-            font-size: 60px;
-        }
+        line-height: 1;
     }
 
-    /* 카테고리 영역 - 타이틀 위에 겹치게 배치 */
+    &__desc {
+        color: $oatmeal;
+        margin: 0;
+    }
+
+    /* 하단 카테고리 네비게이션 그룹 */
     &__cats {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        gap: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        margin-top: -80px; // 타이틀과 오버랩
-        position: relative;
-        z-index: 1;
+    }
 
-        @media (max-width: 1023px) {
-            margin-top: -40px;
+    &__center {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__center-cat {
+        color: $oatmeal;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+        line-height: 1;
+
+        &:hover {
+            opacity: 0.8;
         }
     }
 
-    /* 카테고리 목록 */
+    /* 좌/우 카테고리 리스트 */
     &__cat-list {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 24px; // 각 카테고리 행 간격
 
         &--left {
-            text-align: right;
+            align-items: flex-start;
         }
 
         &--right {
-            text-align: left;
+            align-items: flex-end;
         }
     }
 
     &__cat-item {
-        a {
-            color: $brown-300;
-            text-decoration: none;
-            display: inline-block;
-            transition: color 0.3s ease;
-
-            &:hover {
-                color: $oatmeal;
-            }
-        }
+        display: flex;
+        align-items: center;
+        gap: 16px; // 다이아몬드와 텍스트 간격
     }
 
-    /* 중앙 강조 카테고리 */
-    &__center {
-        text-align: center;
-    }
-
-    &__center-cat {
+    /* 각 카테고리 버튼 */
+    button {
+        background: none;
+        border: none;
+        padding: 0;
         color: $oatmeal;
-        text-decoration: none;
-        display: inline-block;
-        transition: opacity 0.3s ease;
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.3s ease, color 0.3s ease;
 
         &:hover {
-            opacity: 0.7;
+            opacity: 0.8;
+        }
+
+        &.active {
+            opacity: 1;
         }
     }
 
-    /* ──────────── 반응형 ──────────── */
-    @media (max-width: 767px) {
-        padding: 60px 5% 80px;
+    /* 다이아몬드 수식 기호 (8x8 px, 마름모) */
+    &__diamond {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background-color: $oatmeal;
+        transform: rotate(45deg); // 마름모 모양 회전
+    }
+
+    /* ──────────── Response ──────────── */
+    @media (max-width: 1440px) {
+        height: auto;
+        padding: 80px 0;
 
         &__cats {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto auto auto;
-            gap: 32px;
-            margin-top: -20px;
+            gap: 40px;
         }
 
-        &__cat-list {
-            &--left {
-                text-align: center;
-            }
-            &--right {
-                text-align: center;
-            }
+        &__cat-item button {
+            font-size: 32px;
+        }
+
+        &__center-cat {
+            font-size: 72px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        &__cats {
+            flex-direction: column;
+            gap: 60px;
         }
 
         &__center {
-            order: -1; // 모바일에서 중앙을 위로
+            order: -1; // 모바일에서는 중앙 타이틀이 맨 위로
+        }
+
+        &__cat-list {
+            align-items: center;
         }
     }
 }
