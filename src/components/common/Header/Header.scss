@@ -21,8 +21,19 @@
         color: $oatmeal;
 
         .depth1 > li > a,
-        .utl li a {
+        .utl li a,
+        .utl li.search-li,
+        .search-toggle-btn,
+        .search-submit-btn {
             color: $oatmeal;
+        }
+
+        .search-toggle-btn.search-toggle-btn--open {
+            color: $brown-700;
+        }
+
+        .search-form .search-submit-btn {
+            color: $brown-700;
         }
 
         h1 a {

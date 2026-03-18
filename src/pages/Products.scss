@@ -182,6 +182,11 @@
 
     &__card-name {
         color: $brown-800;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__card-desc {

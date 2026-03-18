@@ -49,9 +49,18 @@ export default function ExpandableSearchBar(props) {
     }
   }, [open]);
 
+  const submitSearch = () => {
+    const query = value.trim();
+    if (!query) return;
+
+    onSearch?.(query);
+    setOpen(false);
+    setValue('');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch?.(value);
+    submitSearch();
   };
 
   useEffect(() => {
@@ -59,10 +68,6 @@ export default function ExpandableSearchBar(props) {
       if (e.key === 'Escape' && open) {
         setOpen(false);
         setValue('');
-      }
-
-      if (e.key === 'Enter' && open && value.trim()) {
-        onSearch?.(value);
       }
     };
 
@@ -84,7 +89,7 @@ export default function ExpandableSearchBar(props) {
             e.preventDefault();
             setOpen((s) => !s);
         }}
-        className='search-toggle-btn'
+        className={cn('search-toggle-btn', open && 'search-toggle-btn--open')}
       >
         {open ? <X size={20} /> : <Search size={20} />}
       </button>
