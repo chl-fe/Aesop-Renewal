@@ -16,9 +16,9 @@ const BestProductsSection = () => {
     const sectionRef = useRef(null);
 
     // mainPageContent.js의 고정 상품명 기준으로 필터링
-    const bestProducts = BEST_PRODUCT_NAMES
-        .map(name => productsData.find(p => p.name === name))
-        .filter(Boolean);
+    const bestProducts = BEST_PRODUCT_NAMES.map((name) =>
+        productsData.find((p) => p.name === name)
+    ).filter(Boolean);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -45,7 +45,7 @@ const BestProductsSection = () => {
         <section className="best-products" ref={sectionRef}>
             {/* 섹션 헤더: 타이틀 + 더보기 */}
             <div className="best-products__header">
-                <h2 className="best-products__title optima-20">BEST PRODUCTS</h2>
+                <h2 className="best-products__title montage-32">BEST PRODUCTS</h2>
                 <More to="/products" />
             </div>
 
@@ -64,7 +64,9 @@ const BestProductsSection = () => {
                         </div>
                     </>
                 ) : (
-                    <p className="best-products__empty suit-16-r">베스트 상품을 불러오는 중입니다.</p>
+                    <p className="best-products__empty suit-16-r">
+                        베스트 상품을 불러오는 중입니다.
+                    </p>
                 )}
             </div>
         </section>

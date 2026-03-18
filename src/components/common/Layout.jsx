@@ -20,10 +20,11 @@ const Layout = () => {
         }
         // 홈에서만 스크롤 감지
         const handleScroll = () => {
-            // Hero 높이 기준 (100vh) 넘으면 solid로 전환
-            setScrolled(window.scrollY > window.innerHeight * 0.7);
+            const heroHeight = document.querySelector('.hero')?.offsetHeight ?? window.innerHeight;
+            setScrolled(window.scrollY > heroHeight * 0.9);
         };
         setScrolled(false);
+        handleScroll();
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isHome]);

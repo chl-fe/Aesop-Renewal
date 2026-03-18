@@ -11,7 +11,9 @@
     z-index: 1000;
     @extend .optima-16;
     color: $brown-700;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
 
     /* 홈 Hero 구간 - transparent 오버레이 헤더 */
     &.transparent {
@@ -28,7 +30,8 @@
         }
 
         .logo-svg {
-            /* SVG fill 색상을 흰색 계열로 */
+            fill: $oatmeal;
+            color: $oatmeal;
             filter: brightness(0) invert(1);
         }
 
@@ -76,12 +79,12 @@
     padding: 10px 12px;
 }
 
-#header .depth1>li {
+#header .depth1 > li {
     position: relative;
     /* 자식 depth2의 기준점 */
 }
 
-#header .depth1>li>a {
+#header .depth1 > li > a {
     text-decoration: none;
     color: $brown-900;
     @extend .optima-16;
@@ -90,7 +93,7 @@
     padding: 12px 10px;
 }
 
-#header .depth1>li>a:hover {
+#header .depth1 > li > a:hover {
     opacity: 0.6;
 }
 
@@ -121,13 +124,13 @@
 }
 
 /* 1depth 메뉴 호버 시 2depth 표시 */
-#header .depth1>li:hover .depth2 {
+#header .depth1 > li:hover .depth2 {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-#header .depth2>li>a {
+#header .depth2 > li > a {
     @extend .optima-16;
     font-size: 14px;
     /* optima-16 기본값 외에 커스텀으로 크기를 줄일 경우 보존 */
@@ -136,7 +139,7 @@
     padding: 0;
 }
 
-#header .depth2>li>a:hover {
+#header .depth2 > li > a:hover {
     color: $brown-900;
     /* hover시 진하게 */
     opacity: 1;

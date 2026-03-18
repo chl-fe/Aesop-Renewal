@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AboutTeaserVideo from '../../../assets/AboutTeaser.mp4';
+import AboutTeaserImg1 from '../../../assets/AboutTeaser_img1.png';
+import AboutTeaserImg2 from '../../../assets/AboutTeaser_img2.png';
+import AboutTeaserImg3 from '../../../assets/AboutTeaser_img3.png';
 import MainAbout from '../../../assets/Main_About.svg?react';
 import './AboutTeaserSection.scss';
 
@@ -14,16 +17,22 @@ const PILLARS = [
         title: 'Vegan & Cruelty-free',
         subtitle: '전 제품 동물성 원료 무첨가 및 동물 실험 금지',
         modifier: 'vegan',
+        image: AboutTeaserImg1,
+        alt: 'About teaser visual 1',
     },
     {
         title: 'Recycled Materials',
         subtitle: '재활용 소재 사용',
         modifier: 'recycled',
+        image: AboutTeaserImg2,
+        alt: 'About teaser visual 2',
     },
     {
         title: 'Responsible Sourcing',
         subtitle: '책임감 있는 조달 정책',
         modifier: 'sourcing',
+        image: AboutTeaserImg3,
+        alt: 'About teaser visual 3',
     },
 ];
 
@@ -202,7 +211,17 @@ const AboutTeaserSection = () => {
                                         key={pillar.title}
                                         className={`about-teaser__pillar about-teaser__pillar--${pillar.modifier}`}
                                     >
-                                        <div className="about-teaser__pillar-visual" aria-hidden="true" />
+                                        <div className="about-teaser__pillar-visual">
+                                            <img
+                                                src={pillar.image}
+                                                alt={pillar.alt}
+                                                className="about-teaser__pillar-image"
+                                            />
+                                            <span
+                                                className="about-teaser__pillar-shade"
+                                                aria-hidden="true"
+                                            />
+                                        </div>
                                         <h3 className="about-teaser__pillar-title optima-20">{pillar.title}</h3>
                                         <p className="about-teaser__pillar-subtitle suit-20-r">{pillar.subtitle}</p>
                                     </article>

@@ -1,174 +1,294 @@
-@use "../../../globals.scss" as *;
+@use '../../../globals.scss' as *;
 
 .best-gift {
     width: 100%;
-    height: 1080px;
+    min-height: 1080px;
+    padding: 110px 0;
     background-color: $brown-900;
     color: $oatmeal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
 
     &__inner {
-        width: 100%;
-        max-width: 1400px;
+        width: min(1580px, calc(100% - 88px));
         margin: 0 auto;
-        display: flex;
+        display: grid;
+        grid-template-columns: 267px 496px minmax(431px, 431px);
         justify-content: space-between;
         align-items: center;
-        gap: 60px;
-        padding: 0 4%;
+        column-gap: clamp(48px, 5vw, 108px);
     }
 
-    /* ──── 1. Left (번호 & 작은 이미지) ──── */
     &__left {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center; // 세로 중앙 정렬을 위해
-        gap: 20px;
-        flex: 1;
-        padding-bottom: 120px; // 번호와 이미지 사이 간격을 띄우기 위해
+        justify-content: flex-start;
+        padding-top: 78px;
     }
 
     &__pagination {
         display: flex;
-        align-items: baseline; // 01과 /03 밑선 맞춤
-        gap: 4px;
+        align-items: baseline;
+        gap: 6px;
+        margin-bottom: 28px;
+    }
+
+    &__current,
+    &__slash,
+    &__total {
         color: $oatmeal;
-        margin-bottom: 24px;
     }
 
-    &__current {
-        @extend .montage-48;
+    &__slash,
+    &__total {
+        opacity: 0.58;
     }
 
-    &__slash, &__total {
-        @extend .montage-24;
-        opacity: 0.6;
+    &__center {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        min-width: 0;
+    }
+
+    &__img-small,
+    &__img-arch,
+    &__img-point {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     &__img-small {
         width: 267px;
         height: 334px;
-        background-color: #dbcbb8; // 임시 색상 박스
-        position: relative;
-        overflow: hidden;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
-    /* ──── 2. Center (아치형 이미지) ──── */
-    &__center {
-        display: flex;
-        justify-content: center;
-        flex: 1.5;
     }
 
     &__img-arch {
         width: 496px;
         height: 749px;
-        background-color: #a48e7e; // 임시 색상 박스
-        border-top-left-radius: 248px; // 아치 형태 윗부분 (width/2)
+        border-top-left-radius: 248px;
         border-top-right-radius: 248px;
-        position: relative;
-        overflow: hidden;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
-    /* ──── 3. Right (포인트 이미지 & 텍스트) ──── */
-    &__right {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 40px;
-        flex: 1;
-        padding-bottom: 40px; // 우측 전체적인 상하 수직 위치 비율 조정
     }
 
     &__img-point {
-        width: 160px;
-        height: 160px;
-        background-color: #724128; // 임시 색상 박스
-        align-self: flex-end; // 우측 정렬을 위해
-        overflow: hidden;
-        margin-right: 20px; // 임의 위치
-        margin-bottom: 20px;
+        width: 180px;
+        height: 180px;
+        margin-left: auto;
+        margin-bottom: 74px;
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+    &__image-layer {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transform: scale(1.035);
+        transition:
+            opacity 0.55s ease,
+            transform 0.75s ease;
+        pointer-events: none;
+
+        &.is-active {
+            opacity: 1;
+            transform: scale(1);
         }
     }
 
     &__text-box {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        max-width: 380px;
+        width: 431px;
     }
 
     &__title {
-        @extend .montage-48;
+        margin: 0 0 54px;
         color: $oatmeal;
-        margin: 0;
-        margin-bottom: 40px; // 타이틀과 아래 상품정보 간의 큰 간격
     }
 
     &__info {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
+        margin-bottom: 22px;
+    }
+
+    &__name-eng,
+    &__name-kr {
+        margin: 0;
+        color: $oatmeal;
     }
 
     &__name-eng {
-        @extend .montage-24;
-        color: $oatmeal;
-        margin: 0;
-    }
-
-    &__name-kr {
-        @extend .suit-24-sb;
-        color: $oatmeal;
-        margin: 0;
+        width: 431px;
+        white-space: nowrap;
     }
 
     &__desc {
-        @extend .suit-16-r;
-        color: $brown-200;
-        line-height: 1.6;
-        margin-bottom: 16px;
+        margin: 0 0 32px;
+        color: rgba($oatmeal, 0.76);
+        width: 431px;
+        max-width: 431px;
+        word-break: keep-all;
     }
+}
 
-    /* ──── 반응형 ──── */
-    @media (max-width: 1200px) {
-        height: auto;
-        padding: 100px 0;
+@media (max-width: 1279px) {
+    .best-gift {
+        min-height: auto;
+        padding: 96px 0;
 
         &__inner {
-            flex-direction: column;
-            gap: 60px;
+            width: min(100%, calc(100% - 56px));
+            grid-template-columns: 228px minmax(0, 1fr) 320px;
+            column-gap: 36px;
         }
 
-        &__left, &__center, &__right {
-            align-items: center;
-            text-align: center;
+        &__img-small {
+            width: 228px;
+            height: 286px;
+        }
+
+        &__img-arch {
+            width: min(100%, 430px);
+            height: auto;
+            aspect-ratio: 496 / 749;
+            justify-self: center;
         }
 
         &__img-point {
-            align-self: center;
+            width: 156px;
+            height: 156px;
+            margin-bottom: 56px;
+        }
+
+        &__text-box {
+            width: min(100%, 320px);
+        }
+
+        &__name-eng {
+            width: 100%;
+            white-space: normal;
+        }
+
+        &__desc {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .best-gift {
+        padding: 84px 0;
+
+        &__inner {
+            width: min(100%, calc(100% - 40px));
+            grid-template-columns: 1fr;
+            row-gap: 36px;
+            justify-items: center;
+        }
+
+        &__left,
+        &__center,
+        &__right {
+            width: 100%;
+            max-width: 496px;
+            padding-top: 0;
+        }
+
+        &__left {
+            order: 2;
+            align-items: flex-start;
+        }
+
+        &__center {
+            order: 1;
+        }
+
+        &__right {
+            order: 3;
+        }
+
+        &__img-small {
+            width: 240px;
+            height: 300px;
+        }
+
+        &__img-arch {
+            width: min(100%, 496px);
+        }
+
+        &__img-point {
+            margin-left: 0;
+            margin-bottom: 36px;
+        }
+
+        &__title {
+            margin-bottom: 32px;
+        }
+
+        &__text-box {
+            width: 100%;
+        }
+
+        &__name-eng {
+            width: 100%;
+            white-space: normal;
+        }
+
+        &__desc {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .best-gift {
+        padding: 72px 0;
+
+        &__inner {
+            width: min(100%, calc(100% - 28px));
+            row-gap: 28px;
+        }
+
+        &__pagination {
+            margin-bottom: 18px;
+        }
+
+        &__current {
+            font-size: 40px;
+        }
+
+        &__slash,
+        &__total {
+            font-size: 20px;
+        }
+
+        &__img-small {
+            width: 180px;
+            height: 225px;
+        }
+
+        &__img-point {
+            width: 132px;
+            height: 132px;
+            margin-bottom: 28px;
+        }
+
+        &__title {
+            margin-bottom: 24px;
+            font-size: 40px;
         }
     }
 }

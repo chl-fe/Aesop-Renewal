@@ -1,18 +1,23 @@
-@use "../../../globals.scss" as *;
+@use '../../../globals.scss' as *;
 
-/* ────────────────────────────────────────────────
-   Hero 섹션 - 전체 화면 배경 영상 + 워드마크
-──────────────────────────────────────────────── */
 .hero {
+    --hero-wordmark-aesop-width: 52.5%;
+    --hero-wordmark-ritual-width: 47.5%;
+    --hero-wordmark-bottom-offset: clamp(34px, 5.76vw, 110px);
+
     position: relative;
     width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end; // 워드마크를 하단에 배치
+    height: calc(100vh + clamp(1680px, 188vh, 2480px));
+    min-height: 2140px;
+    overflow: visible;
 
-    /* 배경 영역 */
+    &__stage {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+
     &__bg {
         position: absolute;
         inset: 0;
@@ -26,7 +31,6 @@
         object-position: center;
     }
 
-    /* 어두운 그라디언트 오버레이 */
     &__overlay {
         position: absolute;
         inset: 0;
@@ -38,26 +42,28 @@
         );
     }
 
-    /* 하단 콘텐츠 영역 */
     &__content {
         position: absolute;
-        bottom: -2%;
-        left: 0;
+        inset: 0;
         z-index: 1;
         width: 100%;
         padding: 0;
         color: $oatmeal;
+        will-change: opacity, transform;
+        display: flex;
+        align-items: flex-end;
     }
 
-    /* 워드마크: Aesop + Ritual 가로 한 줄 배치 */
     &__wordmark {
         display: flex;
-        flex-direction: row;
         align-items: flex-start;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 0;
         width: 100%;
-        line-height: 0.85;
+        line-height: 0;
         white-space: nowrap;
+        overflow: visible;
+        transform: translateY(calc(var(--hero-wordmark-bottom-offset) + 2vh));
 
         svg {
             fill: $oatmeal;
@@ -70,29 +76,45 @@
 
     &__wordmark-aesop {
         display: block;
-        /* Aesop SVG 원본 비율: 966 / (966+874) ≈ 52.5% */
-        flex: 0 0 52.5%;
+        flex: 0 0 auto;
+        width: var(--hero-wordmark-aesop-width);
+        will-change: opacity;
     }
 
     &__wordmark-ritual {
         display: block;
-        /* Ritual SVG 원본 비율: 874 / (966+874) ≈ 47.5% */
-        flex: 0 0 47.5%;
+        flex: 0 0 auto;
+        width: var(--hero-wordmark-ritual-width);
+        will-change: transform, opacity;
     }
 
-    /* 서브텍스트 */
-    &__subtitle {
-        padding: 0 2%;
-        margin-top: 12px;
-        margin-bottom: 24px;
-        color: rgba($oatmeal, 0.85);
-        letter-spacing: 0.1em;
+    &__wordmark-flight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1002;
+        pointer-events: none;
+        color: $oatmeal;
+        opacity: 0;
+        will-change: transform, opacity;
+
+        svg {
+            fill: currentColor;
+            color: currentColor;
+            display: block;
+            width: 100%;
+            height: auto;
+        }
     }
 
-    /* ──────────── 반응형 ──────────── */
     @media (max-width: 767px) {
-        &__content {
-            bottom: -1%;
+        --hero-wordmark-bottom-offset: clamp(22px, 5.76vw, 42px);
+
+        height: calc(100vh + clamp(920px, 128vh, 1380px));
+        min-height: 1580px;
+
+        &__wordmark {
+            transform: translateY(calc(var(--hero-wordmark-bottom-offset) + 1vh));
         }
     }
 }
