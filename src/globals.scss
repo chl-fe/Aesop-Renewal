@@ -297,6 +297,15 @@ $font-optima: 'Optima', 'Segoe UI', 'Candara', Geneva, sans-serif;
 // Optima Styles
 // --------------------------------------------
 
+.optima-220 {
+    font-family: $font-optima;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 220px;
+    line-height: 1.5;
+    letter-spacing: -4.4px;
+}
+
 .optima-70 {
     font-family: $font-optima;
     font-style: normal;

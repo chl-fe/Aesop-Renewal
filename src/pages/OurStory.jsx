@@ -7,6 +7,7 @@ import aboutBg from '../assets/about_background.mov';
 import aboutFormulation from '../assets/about_formulation.png';
 import aboutTexture from '../assets/about_texture.png';
 import aboutSustain from '../assets/about_sustain.png';
+import originsLineSrc from '../assets/about_origins_line.svg';
 import shop01 from '../assets/about_shop01.png';
 import shop02 from '../assets/about_shop02.png';
 import shop03 from '../assets/about_shop03.png';
@@ -101,6 +102,7 @@ const OurStory = () => {
     const valuesEnRef       = useRef(null);
     const valuesKrRef       = useRef(null);
     const originsInnerRef   = useRef(null);   // Origins 탭+컨텐츠 영역
+    const originsLineRef    = useRef(null);   // 장식 선 SVG 래퍼
 
     // ── Origins tab refs ─────────────────────────────────────────────────────
     const tabContentEnRef   = useRef(null);
@@ -112,11 +114,23 @@ const OurStory = () => {
     const changeTab = useCallback((id) => {
         const tab = ORIGINS_TABS.find((t) => t.id === id);
         if (!tab || activeTabRef.current === id) return;
+
+        const prevId = activeTabRef.current;
         activeTabRef.current = id;
 
-        const enEl = tabContentEnRef.current;
-        const krEl = tabContentKrRef.current;
+        const enEl  = tabContentEnRef.current;
+        const krEl  = tabContentKrRef.current;
+        const lineEl = originsLineRef.current;
         if (!enEl || !krEl) return;
+
+        // 선: Origins 떠날 때 사라지고, 돌아올 때 다시 그림
+        if (prevId === 'origins' && id !== 'origins' && lineEl) {
+            gsap.to(lineEl, { autoAlpha: 0, duration: 0.8, ease: 'power2.in' });
+        } else if (id === 'origins' && prevId !== 'origins' && lineEl) {
+            gsap.set(lineEl, { clipPath: 'inset(0 100% 0 0)' });
+            gsap.to(lineEl, { autoAlpha: 1, duration: 0.1 });
+            gsap.to(lineEl, { clipPath: 'inset(0 0% 0 0)', duration: 4, ease: 'power2.inOut' });
+        }
 
         gsap.to([enEl, krEl], {
             autoAlpha: 0,
@@ -243,10 +257,11 @@ const OurStory = () => {
                     },
                 });
 
-                // 헤딩: 22%→33% 구간 scrub — 중앙에서 top:140px 로 이동 + scale 0.6
-                // y delta = (140 + h*0.3) - 50vh  (음수 = 위로)
+                // 헤딩: 22%→33% 구간 scrub — 중앙에서 top:70px 로 이동 + scale 0.6
+                // Figma 719-2436: 컨테이너 top:70px
+                // y delta = (70 + h*0.3) - 50vh  (음수 = 위로)
                 gsap.to(valuesHeadingRef.current, {
-                    y: () => 140 + valuesHeadingRef.current.offsetHeight * 0.3 - window.innerHeight / 2,
+                    y: () => 70 + valuesHeadingRef.current.offsetHeight * 0.3 - window.innerHeight / 2,
                     yPercent: 0,
                     scale: 0.6,
                     ease: 'none',
@@ -276,6 +291,22 @@ const OurStory = () => {
                         },
                     }
                 );
+
+                // Origins 장식선 초기 상태 및 드로우 애니메이션
+                gsap.set(originsLineRef.current, { clipPath: 'inset(0 100% 0 0)', autoAlpha: 0 });
+                ScrollTrigger.create({
+                    trigger: storyMidRef.current,
+                    start: '41% top',
+                    once: true,
+                    onEnter: () => {
+                        gsap.set(originsLineRef.current, { autoAlpha: 1 });
+                        gsap.to(originsLineRef.current, {
+                            clipPath: 'inset(0 0% 0 0)',
+                            duration: 4,
+                            ease: 'power2.inOut',
+                        });
+                    },
+                });
 
                 // Origins 탭 스크롤 전환 (44%, 55%, 66%, 77% 트리거)
                 const STORY_TAB_PCT = [0, 44, 55, 66, 77];
@@ -429,6 +460,11 @@ const OurStory = () => {
                     {/* Origins 탭+컨텐츠: 헤딩 고정 후 fade-in */}
                     <div className="about-origins__inner" ref={originsInnerRef}>
                         <div className="about-origins__body">
+                            {/* 장식 선 — Origins 탭에서 GSAP clip-path 드로우 */}
+                            <div className="about-origins__line-wrap" ref={originsLineRef} aria-hidden="true">
+                                <img src={originsLineSrc} alt="" />
+                            </div>
+
                             <nav className="about-origins__tabs">
                                 {ORIGINS_TABS.map((tab, i) => (
                                     <button
@@ -459,7 +495,7 @@ const OurStory = () => {
 
                         {/* ── FORMULATION ── */}
             <section className="about-formulation" data-node-id="763:1336">
-                <h2 className="about-formulation__title">Formulation</h2>
+                <h2 className="about-formulation__title optima-220">Formulation</h2>
                 <img className="about-formulation__texture" src={aboutTexture} alt="" aria-hidden="true" />
                 <img className="about-formulation__main" src={aboutFormulation} alt="Aesop formulation products" />
                 <p className="about-formulation__desc">
@@ -470,7 +506,7 @@ const OurStory = () => {
 
             {/* ── ARCHITECTURE ── */}
             <section className="about-architecture" data-node-id="763:1348">
-                <h2 className="about-architecture__title">Architecture</h2>
+                <h2 className="about-architecture__title optima-220">Architecture</h2>
                 <div className="about-architecture__images">
                     {ARCH_IMAGES.map((img, i) => (
                         <img
@@ -489,7 +525,7 @@ const OurStory = () => {
 
             {/* ── SUSTAINABILITY ── */}
             <section className="about-sustainability" data-node-id="763:1341">
-                <h2 className="about-sustainability__title">Sustainability</h2>
+                <h2 className="about-sustainability__title optima-220">Sustainability</h2>
                 <div className="about-sustainability__image">
                     <img src={aboutSustain} alt="Aesop sustainable products" />
                 </div>
