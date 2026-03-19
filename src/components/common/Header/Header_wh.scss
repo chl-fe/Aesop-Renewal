@@ -164,6 +164,18 @@
     opacity: 0.6;
 }
 
+#header-wh .search-toggle-btn {
+    color: $oatmeal;
+}
+
+#header-wh .search-toggle-btn.search-toggle-btn--open {
+    color: $brown-700;
+}
+
+#header-wh .search-form .search-submit-btn {
+    color: $brown-700;
+}
+
 #header-wh .cart-count {
     background-color: #f7a28e;
     color: $brown-500;
