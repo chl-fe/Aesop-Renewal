@@ -125,7 +125,7 @@
 // Figma 719-2436: background $bg-primary (#eee5da)
 .about-story-mid {
     position: relative;
-    height: 900vh;
+    height: 1050vh;
     background-color: $bg-primary;
 
     // CSS sticky 패널 — 100vh 고정
@@ -290,6 +290,18 @@
     }
 }
 
+// ─── Char Split 공통 ──────────────────────────────────────────────────────────
+// 타이틀 글자별 슬라이드업 애니메이션용
+.char-wrap {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.char {
+    display: inline-block;
+}
+
 // ─── Large Section Title (Formulation / Architecture / Sustainability) ─────────
 // 폰트는 optima-220 클래스로 적용 — 여기선 레이아웃·색상만
 %about-section-title {
@@ -322,35 +334,102 @@
     overflow: hidden;
     background-color: $bg-primary;
 
-    &__title {
-        @extend %about-section-title;
-        top: 9.07%; // 98/1080
+    // Figma 802:1331: 타이틀+이너를 하나의 flex-col 컬럼으로
+    // left=right=calc(8.33%+247px)로 중앙 배치, top:9.07%(98/1080)
+    &__col {
+        position: absolute;
+        left: calc(8.33% + 247px);
+        right: calc(8.33% + 247px);
+        top: 9.07%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 70px;
     }
 
+    // optima-220 클래스로 폰트 적용 — 레이아웃·색상만 여기서
+    &__title {
+        width: 100%;
+        color: $brown-800;
+        white-space: nowrap;
+        pointer-events: none;
+        line-height: 1;
+    }
+
+    // Figma 802:1326: 740px, gap:32px, 하단 -70px margin으로 texture 오버랩
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        width: 38.54vw;   // 740/1920
+        max-width: 740px;
+        margin-bottom: -70px;
+        position: relative;
+        z-index: 2;
+    }
+
+    // 사진 래퍼: 740×400 비율 유지
+    &__main {
+        width: 100%;
+        aspect-ratio: 740 / 400;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+
+        img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // 설명 텍스트: SUIT Light 20px, 3줄
+    &__desc {
+        font-family: $font-suit;
+        font-size: clamp(13px, 1.04vw, 20px);
+        font-weight: 300;
+        line-height: 1.9;
+        color: $brown-600;
+        text-align: center;
+    }
+
+    // 텍스처: 독립 absolute 레이어, z-index:4 (사진 위)
+    // Figma: left:calc(58.33%+24px), top:19.35%(209/1080), 450×380px
     &__texture {
         position: absolute;
-        left: 77.81%; // 1494/1920
-        top: 19.35%;  // 209/1080
-        width: 23.49%; // 451/1920
-        height: auto;
-        z-index: 2;
-        object-fit: cover;
+        left: calc(58.33% + 24px);
+        top: 19.35%;                   // 209/1080
+        width: 23.49%;                 // 450.985/1920
+        aspect-ratio: 450.985 / 379.826;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 4;
+        pointer-events: none;
     }
 
-    &__main {
-        position: absolute;
-        left: 30.73%; // 590/1920
-        top: 33.24%;  // 359/1080
-        width: 38.54%; // 740/1920
-        height: auto;
-        z-index: 3;
-        object-fit: cover;
+    &__texture-rotated {
+        flex-shrink: 0;
+        transform: rotate(64.74deg);
     }
 
-    &__desc {
-        @extend %about-section-desc;
-        top: 73.24%; // 791/1080
-        padding: 0 31.4%; // ≈ 602/1920 on each side
+    &__texture-crop {
+        width: 52.68%;   // 237.577/450.985
+        height: 101.77%; // 386.566/379.826
+        position: relative;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: -81.19%;
+            width: 185.25%;
+            height: 100%;
+            max-width: none;
+        }
     }
 }
 

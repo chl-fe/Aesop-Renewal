@@ -72,6 +72,23 @@ const ORIGINS_TABS = [
 const ARCH_IMAGES = [shop01, shop02, shop03, shop04, shop05, shop06];
 
 
+// ── 타이틀 텍스트를 글자별 span으로 분해 (char split 애니메이션용) ────────────
+const splitTitle = (el) => {
+    if (!el) return [];
+    const text = el.textContent;
+    el.textContent = '';
+    return [...text].map((char) => {
+        const wrap = document.createElement('span');
+        wrap.className = 'char-wrap';
+        const inner = document.createElement('span');
+        inner.className = 'char';
+        inner.textContent = char === ' ' ? '\u00A0' : char;
+        wrap.appendChild(inner);
+        el.appendChild(wrap);
+        return inner;
+    });
+};
+
 // ── desc 텍스트를 줄별 span 요소로 분해해 container에 주입 ──────────────────
 const setDescLines = (container, text) => {
     container.innerHTML = '';
@@ -103,6 +120,11 @@ const OurStory = () => {
     const valuesKrRef       = useRef(null);
     const originsInnerRef   = useRef(null);   // Origins 탭+컨텐츠 영역
     const originsLineRef    = useRef(null);   // 장식 선 SVG 래퍼
+
+    // ── 하단 섹션 타이틀 refs (char split) ───────────────────────────────────
+    const formTitleRef      = useRef(null);
+    const archTitleRef      = useRef(null);
+    const sustainTitleRef   = useRef(null);
 
     // ── Origins tab refs ─────────────────────────────────────────────────────
     const tabContentEnRef   = useRef(null);
@@ -158,6 +180,12 @@ const OurStory = () => {
         const initLines = setDescLines(descRef.current, SLIDES[0].desc);
 
         const ctx = gsap.context(() => {
+            // 하단 섹션 타이틀 char split (DOM 변환, 모든 motion 설정에 공통)
+            const formChars    = splitTitle(formTitleRef.current);
+            const archChars    = splitTitle(archTitleRef.current);
+            const sustainChars = splitTitle(sustainTitleRef.current);
+            gsap.set([...formChars, ...archChars, ...sustainChars], { y: '110%' });
+
             // 초기 상태: subtitle + lines invisible
             gsap.set(subtitleRef.current, { autoAlpha: 0, y: 28 });
             gsap.set(initLines, { autoAlpha: 0, y: 28 });
@@ -246,20 +274,19 @@ const OurStory = () => {
                     scrollTrigger: { trigger: storyMidRef.current, start: 'top 65%' },
                 });
 
-                // EN/KR 텍스트: 11%→22% 구간 scrub fade-out (100vh→200vh)
+                // EN/KR 텍스트: 9.52%→19.05% scrub fade-out (100vh→200vh / 1050vh 기준)
                 gsap.to(valuesTextsRef.current, {
                     autoAlpha: 0, y: -20, ease: 'none',
                     scrollTrigger: {
                         trigger: storyMidRef.current,
-                        start: '11.1% top',
-                        end: '22.2% top',
+                        start: '9.52% top',
+                        end: '19.05% top',
                         scrub: true,
                     },
                 });
 
-                // 헤딩: 22%→33% 구간 scrub — 중앙에서 top:70px 로 이동 + scale 0.6
-                // Figma 719-2436: 컨테이너 top:70px
-                // y delta = (70 + h*0.3) - 50vh  (음수 = 위로)
+                // 헤딩: 19.05%→28.57% 구간 scrub — 중앙에서 top:70px 로 이동 + scale 0.6
+                // (200vh→300vh / 1050vh 기준)
                 gsap.to(valuesHeadingRef.current, {
                     y: () => 70 + valuesHeadingRef.current.offsetHeight * 0.3 - window.innerHeight / 2,
                     yPercent: 0,
@@ -267,36 +294,32 @@ const OurStory = () => {
                     ease: 'none',
                     scrollTrigger: {
                         trigger: storyMidRef.current,
-                        start: '22.2% top',
-                        end: '33.3% top',
+                        start: '19.05% top',
+                        end: '28.57% top',
                         scrub: true,
                         invalidateOnRefresh: true,
                     },
                 });
 
-                // Origins inner: 33%→40% scrub slide-up
-                // yPercent:100 → 요소를 자신의 높이(=100vh)만큼 아래로 밀어
-                // 패널의 overflow:hidden 에 의해 물리적으로 잘려 완전히 비가시.
-                // autoAlpha 의존 없이 위치로 제어 → changeTab 내 opacity 충돌 없음.
-                // 역스크롤: scrub이 yPercent:100 으로 되돌아가 자연스럽게 아래로 사라짐.
+                // Origins inner: 28.57%→34.29% scrub slide-up (300vh→360vh / 1050vh 기준)
                 gsap.fromTo(originsInnerRef.current,
                     { yPercent: 100 },
                     {
                         yPercent: 0, ease: 'none',
                         scrollTrigger: {
                             trigger: storyMidRef.current,
-                            start: '33.3% top',
-                            end: '40% top',
+                            start: '28.57% top',
+                            end: '34.29% top',
                             scrub: 1,
                         },
                     }
                 );
 
-                // Origins 장식선 초기 상태 및 드로우 애니메이션
+                // Origins 장식선: 35% 트리거 (≈367vh / 1050vh 기준)
                 gsap.set(originsLineRef.current, { clipPath: 'inset(0 100% 0 0)', autoAlpha: 0 });
                 ScrollTrigger.create({
                     trigger: storyMidRef.current,
-                    start: '41% top',
+                    start: '35% top',
                     once: true,
                     onEnter: () => {
                         gsap.set(originsLineRef.current, { autoAlpha: 1 });
@@ -308,8 +331,9 @@ const OurStory = () => {
                     },
                 });
 
-                // Origins 탭 스크롤 전환 (44%, 55%, 66%, 77% 트리거)
-                const STORY_TAB_PCT = [0, 44, 55, 66, 77];
+                // Origins 탭 스크롤 전환 — 150vh 간격 (1050vh 기준)
+                // Naming:400vh=38.1%, Formulation:550vh=52.38%, Architecture:700vh=66.67%, Approach:850vh=80.95%
+                const STORY_TAB_PCT = [0, 38.1, 52.38, 66.67, 80.95];
                 ORIGINS_TABS.forEach((tab, i) => {
                     if (i === 0) return;
                     ScrollTrigger.create({
@@ -320,26 +344,31 @@ const OurStory = () => {
                     });
                 });
 
-                // ── 하단 섹션 reveals ────────────────────────────────────────
-                gsap.from('.about-formulation__title', {
-                    autoAlpha: 0, y: 70, duration: 1.3, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.about-formulation', start: 'top 65%' },
-                });
-                gsap.from('.about-formulation__texture, .about-formulation__main, .about-formulation__desc', {
+                // ── 하단 섹션 타이틀: 글자별 슬라이드업 (fromTo — set 후 from 충돌 방지) ─
+                gsap.fromTo(formChars,
+                    { y: '110%' },
+                    { y: 0, duration: 1.1, stagger: 0.03, ease: 'power3.out',
+                      scrollTrigger: { trigger: '.about-formulation', start: 'top 65%' } }
+                );
+                gsap.fromTo(archChars,
+                    { y: '110%' },
+                    { y: 0, duration: 1.1, stagger: 0.03, ease: 'power3.out',
+                      scrollTrigger: { trigger: '.about-architecture', start: 'top 65%' } }
+                );
+                gsap.fromTo(sustainChars,
+                    { y: '110%' },
+                    { y: 0, duration: 1.1, stagger: 0.03, ease: 'power3.out',
+                      scrollTrigger: { trigger: '.about-sustainability', start: 'top 65%' } }
+                );
+
+                // ── 하단 섹션 콘텐츠 reveals ──────────────────────────────────
+                gsap.from('.about-formulation__texture, .about-formulation__content', {
                     autoAlpha: 0, y: 50, duration: 1, stagger: 0.15, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.about-formulation__main', start: 'top 75%' },
-                });
-                gsap.from('.about-architecture__title', {
-                    autoAlpha: 0, y: 70, duration: 1.3, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.about-architecture', start: 'top 65%' },
+                    scrollTrigger: { trigger: '.about-formulation__content', start: 'top 75%' },
                 });
                 gsap.from('.arch-img', {
                     autoAlpha: 0, y: 80, duration: 1, stagger: 0.1, ease: 'power3.out',
                     scrollTrigger: { trigger: '.about-architecture__images', start: 'top 80%' },
-                });
-                gsap.from('.about-sustainability__title', {
-                    autoAlpha: 0, y: 70, duration: 1.3, ease: 'power3.out',
-                    scrollTrigger: { trigger: '.about-sustainability', start: 'top 65%' },
                 });
                 gsap.from('.about-sustainability__image, .about-sustainability__desc', {
                     autoAlpha: 0, y: 50, duration: 1, stagger: 0.15, ease: 'power3.out',
@@ -349,6 +378,8 @@ const OurStory = () => {
 
             // ── reduced-motion fallback ───────────────────────────────────────
             mm.add('(prefers-reduced-motion: reduce)', () => {
+                // 타이틀 chars 즉시 표시
+                gsap.set([...formChars, ...archChars, ...sustainChars], { y: 0 });
                 // 초기 텍스트 즉시 표시
                 gsap.set(subtitleRef.current, { autoAlpha: 1, y: 0 });
                 gsap.set(initLines, { autoAlpha: 1, y: 0 });
@@ -374,7 +405,7 @@ const OurStory = () => {
                 gsap.set(originsInnerRef.current, { autoAlpha: 1 });
 
                 // Origins 즉시 전환 (reduced-motion)
-                const STORY_TAB_PCT_RM = [0, 44, 55, 66, 77];
+                const STORY_TAB_PCT_RM = [0, 38.1, 52.38, 66.67, 80.95];
                 ORIGINS_TABS.forEach((tab, i) => {
                     if (i === 0) return;
                     ScrollTrigger.create({
@@ -494,19 +525,42 @@ const OurStory = () => {
             </section>
 
                         {/* ── FORMULATION ── */}
+            {/* 피그마 802:1331: 타이틀+사진+텍스트를 하나의 flex-col 컨테이너로 */}
             <section className="about-formulation" data-node-id="763:1336">
-                <h2 className="about-formulation__title optima-220">Formulation</h2>
-                <img className="about-formulation__texture" src={aboutTexture} alt="" aria-hidden="true" />
-                <img className="about-formulation__main" src={aboutFormulation} alt="Aesop formulation products" />
-                <p className="about-formulation__desc">
-                    자체 실험실에서 화학자들이 직접 포뮬레이션을 설계합니다. 새로운 기술과 검증된 과학을 병행하며,
-                    식물 유래 성분과 과학 성분을 균형 있게 조합합니다. 우리는 피부를 보호하고 회복하는 데 초점을 둔 스킨케어를 지향합니다.
-                </p>
+
+                {/* 메인 컬럼 (802:1331): left=calc(8.33%+247px), flex-col, items-center */}
+                <div className="about-formulation__col">
+                    <h2 className="about-formulation__title optima-220" ref={formTitleRef}>Formulation</h2>
+
+                    {/* 이너 컨텐츠 (802:1326): 740px, gap:32px, mb:-70px */}
+                    <div className="about-formulation__content">
+                        {/* 사진: aspect-ratio 740/400 */}
+                        <div className="about-formulation__main">
+                            <img src={aboutFormulation} alt="Aesop formulation products" />
+                        </div>
+                        {/* 설명: SUIT Light 20px, 3줄 br 명시 */}
+                        <p className="about-formulation__desc">
+                            자체 실험실에서 화학자들이 직접 포뮬레이션을 설계합니다.<br />
+                            새로운 기술과 검증된 과학을 병행하며, 식물 유래 성분과 과학 성분을 균형 있게 조합합니다.<br />
+                            우리는 피부를 보호하고 회복하는 데 초점을 둔 스킨케어를 지향합니다.
+                        </p>
+                    </div>
+                </div>
+
+                {/* 텍스처: 독립 absolute 레이어 — left:calc(58.33%+24px), rotate(64.74deg) */}
+                <div className="about-formulation__texture" aria-hidden="true">
+                    <div className="about-formulation__texture-rotated">
+                        <div className="about-formulation__texture-crop">
+                            <img src={aboutTexture} alt="" />
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
             {/* ── ARCHITECTURE ── */}
             <section className="about-architecture" data-node-id="763:1348">
-                <h2 className="about-architecture__title optima-220">Architecture</h2>
+                <h2 className="about-architecture__title optima-220" ref={archTitleRef}>Architecture</h2>
                 <div className="about-architecture__images">
                     {ARCH_IMAGES.map((img, i) => (
                         <img
@@ -525,7 +579,7 @@ const OurStory = () => {
 
             {/* ── SUSTAINABILITY ── */}
             <section className="about-sustainability" data-node-id="763:1341">
-                <h2 className="about-sustainability__title optima-220">Sustainability</h2>
+                <h2 className="about-sustainability__title optima-220" ref={sustainTitleRef}>Sustainability</h2>
                 <div className="about-sustainability__image">
                     <img src={aboutSustain} alt="Aesop sustainable products" />
                 </div>
