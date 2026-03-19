@@ -12,6 +12,7 @@ import FindAccount from '../pages/FindAccount';
 import MyPage from '../pages/MyPage';
 import GiftGuide from '../pages/GiftGuide';
 import Benefits from '../pages/Benefits';
+import KrExclusiveBenefits from '../pages/KrExclusiveBenefits';
 import OurStory from '../pages/OurStory';
 import Search from '../pages/Search';
 import Support from '../pages/Support';
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
             // 혜택
             { path: 'benefits', element: <Benefits /> },
             { path: 'benefits/official', element: <Benefits sub="official" /> },
-            { path: 'benefits/kr-exclusive', element: <Benefits sub="kr-exclusive" /> },
+            { path: 'benefits/kr-exclusive', element: <KrExclusiveBenefits /> },
 
             // 브랜드 스토리
             { path: 'our-story', element: <OurStory /> },

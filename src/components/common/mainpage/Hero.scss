@@ -11,6 +11,15 @@
     min-height: 2140px;
     overflow: visible;
 
+    &.hero--handoff-complete {
+        height: 100vh;
+        min-height: 100vh;
+
+        .hero__stage {
+            position: relative;
+        }
+    }
+
     &__stage {
         position: sticky;
         top: 0;
@@ -104,6 +113,40 @@
             display: block;
             width: 100%;
             height: auto;
+        }
+    }
+
+    &__wordmark-flight-shell {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        isolation: isolate;
+        will-change: border-radius;
+    }
+
+    &__wordmark-flight-mark {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        will-change: clip-path, transform;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__wordmark-flight-mark--logo {
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        path {
+            fill: currentColor;
         }
     }
 

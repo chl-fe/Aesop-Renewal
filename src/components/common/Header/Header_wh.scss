@@ -40,11 +40,11 @@
     padding: 10px 12px;
 }
 
-#header-wh .depth1>li {
+#header-wh .depth1 > li {
     position: relative;
 }
 
-#header-wh .depth1>li>a {
+#header-wh .depth1 > li > a {
     text-decoration: none;
     color: $oatmeal;
     /* 기본 헤더의 $brown-900 대신 $oatmeal 사용 */
@@ -54,7 +54,7 @@
     padding: 12px 10px;
 }
 
-#header-wh .depth1>li>a:hover {
+#header-wh .depth1 > li > a:hover {
     opacity: 0.6;
 }
 
@@ -82,13 +82,13 @@
     gap: 16px;
 }
 
-#header-wh .depth1>li:hover .depth2 {
+#header-wh .depth1 > li:hover .depth2 {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-#header-wh .depth2>li>a {
+#header-wh .depth2 > li > a {
     @extend .optima-16;
     font-size: 14px;
     color: $brown-700;
@@ -97,8 +97,8 @@
     padding: 0;
 }
 
-#header-wh .depth2>li>a:hover {
-    color: $brown-900;
+#header-wh .depth2 > li > a:hover {
+    color: $oatmeal;
     opacity: 1;
 }
 
@@ -132,7 +132,6 @@
 #header-wh .logo-svg path {
     fill: $oatmeal;
 }
-
 
 /* ==================
    UTL (Utility Menu)
@@ -177,7 +176,7 @@
 }
 
 #header-wh .cart-count {
-    background-color: #f7a28e;
+    background-color: $point-pink;
     color: $brown-500;
     font-size: 11px;
     font-family: $font-optima;

@@ -197,7 +197,7 @@ const AboutTeaserSection = () => {
                                 An Aesthetic of Responsibility
                             </h2>
                             <span className="about-teaser__divider" aria-hidden="true" />
-                            <p className="about-teaser__body suit-20-r">
+                            <p className="about-teaser__body suit-20-l">
                                 전 제품은 비건 인증(PETA)을 받았으며, 책임 있는 원료 조달을 바탕으로 생명을 존중하는 태도를 실천합니다.
                                 <br />
                                 또한 PCR과 알루미늄을 포함한 97% 이상의 재활용 소재를 활용해,
@@ -223,7 +223,7 @@ const AboutTeaserSection = () => {
                                             />
                                         </div>
                                         <h3 className="about-teaser__pillar-title optima-20">{pillar.title}</h3>
-                                        <p className="about-teaser__pillar-subtitle suit-20-r">{pillar.subtitle}</p>
+                                        <p className="about-teaser__pillar-subtitle suit-20-l">{pillar.subtitle}</p>
                                     </article>
                                 ))}
                             </div>

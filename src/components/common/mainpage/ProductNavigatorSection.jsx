@@ -105,7 +105,7 @@ const ProductNavigatorSection = () => {
             <div className="pnav__inner">
                 <div className="pnav__header">
                     <h2 className="pnav__title montage-220">Product</h2>
-                    <p className="pnav__desc suit-20-r">
+                    <p className="pnav__desc suit-20-l">
                         피부와 손길, 향과 공간에 이르기까지, 이솝의 다양한 제품군을 천천히
                         살펴보세요.
                     </p>

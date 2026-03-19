@@ -583,7 +583,7 @@ const BestGiftSection = () => {
 
                         <div className="best-gift__info">
                             <h3 className="best-gift__name-eng optima-40">{currentItem.nameEng}</h3>
-                            <p className="best-gift__name-kr suit-20-r">{currentItem.nameKr}</p>
+                            <p className="best-gift__name-kr suit-20-l">{currentItem.nameKr}</p>
                         </div>
 
                         <p className="best-gift__desc suit-16-r">{currentItem.desc}</p>

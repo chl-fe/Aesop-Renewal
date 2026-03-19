@@ -1,9 +1,10 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import heroVideo from '../../../assets/Hero_MP4.mp4';
 import HeroAesop from '../../../assets/Hero_Aesop.svg?react';
 import HeroRitual from '../../../assets/Hero_Ritual.svg?react';
+import HeaderLogo from '../../../assets/GNB_Logo.svg?react';
 import './Hero.scss';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,6 +16,33 @@ const Hero = () => {
     const aesopRef = useRef(null);
     const ritualRef = useRef(null);
     const flightRef = useRef(null);
+    const flightShellRef = useRef(null);
+    const flightAesopRef = useRef(null);
+    const flightLogoRef = useRef(null);
+    const hasCompletedLogoHandoffRef = useRef(false);
+    const collapseDistanceRef = useRef(0);
+    const [isHandoffComplete, setIsHandoffComplete] = useState(false);
+
+    useLayoutEffect(() => {
+        if (!isHandoffComplete) {
+            return undefined;
+        }
+
+        const collapseDistance = collapseDistanceRef.current;
+
+        if (collapseDistance > 0) {
+            window.scrollTo({
+                top: Math.max(window.scrollY - collapseDistance, 0),
+                left: 0,
+                behavior: 'auto',
+            });
+        }
+
+        ScrollTrigger.refresh();
+        collapseDistanceRef.current = 0;
+
+        return undefined;
+    }, [isHandoffComplete]);
 
     useLayoutEffect(() => {
         const headerLogo = document.querySelector('[data-header-logo]');
@@ -26,7 +54,10 @@ const Hero = () => {
             !contentRef.current ||
             !aesopRef.current ||
             !ritualRef.current ||
-            !flightRef.current
+            !flightRef.current ||
+            !flightShellRef.current ||
+            !flightAesopRef.current ||
+            !flightLogoRef.current
         ) {
             return undefined;
         }
@@ -77,6 +108,7 @@ const Hero = () => {
 
         const ctx = gsap.context(() => {
             const holdState = { value: 0 };
+            let heroFlightTimeline;
 
             measureFlightPath();
 
@@ -90,6 +122,24 @@ const Hero = () => {
                 transformOrigin: 'top left',
                 force3D: true,
             });
+            gsap.set(flightShellRef.current, {
+                borderRadius: 0,
+                overflow: 'hidden',
+            });
+            gsap.set(flightAesopRef.current, {
+                scale: 1,
+                xPercent: 0,
+                transformOrigin: 'center center',
+                force3D: true,
+            });
+            gsap.set(flightLogoRef.current, {
+                autoAlpha: 0,
+                clipPath: 'inset(30% 46% 30% 46% round 999px)',
+                scale: 0.92,
+                xPercent: 2.5,
+                transformOrigin: 'center center',
+                force3D: true,
+            });
 
             gsap.fromTo(
                 contentRef.current,
@@ -97,7 +147,43 @@ const Hero = () => {
                 { opacity: 1, duration: 1.1, ease: 'power2.out', delay: 0.35 }
             );
 
-            gsap.timeline({
+            const finalizeLogoHandoff = () => {
+                if (hasCompletedLogoHandoffRef.current) {
+                    return;
+                }
+
+                hasCompletedLogoHandoffRef.current = true;
+                collapseDistanceRef.current = Math.max(
+                    sectionRef.current.offsetHeight - stageRef.current.offsetHeight,
+                    0
+                );
+                heroFlightTimeline?.scrollTrigger?.kill();
+                heroFlightTimeline?.kill();
+
+                gsap.set(headerLogo, { clearProps: 'opacity' });
+                gsap.set(aesopRef.current, { autoAlpha: 0 });
+                gsap.set(ritualRef.current, { autoAlpha: 0 });
+                gsap.set(flightRef.current, {
+                    x: 0,
+                    y: 0,
+                    scaleX: 1,
+                    scaleY: 1,
+                    opacity: 0,
+                });
+                gsap.set(flightShellRef.current, { clearProps: 'borderRadius' });
+                gsap.set(flightAesopRef.current, {
+                    clearProps: 'scale,xPercent',
+                });
+                gsap.set(flightLogoRef.current, {
+                    autoAlpha: 0,
+                    clipPath: 'inset(30% 46% 30% 46% round 999px)',
+                    scale: 0.92,
+                    xPercent: 2.5,
+                });
+                setIsHandoffComplete(true);
+            };
+
+            heroFlightTimeline = gsap.timeline({
                 defaults: { ease: 'none' },
                 scrollTrigger: {
                     trigger: sectionRef.current,
@@ -107,10 +193,11 @@ const Hero = () => {
                     invalidateOnRefresh: true,
                     onRefreshInit: measureFlightPath,
                     onRefresh: measureFlightPath,
+                    onLeave: finalizeLogoHandoff,
                 },
             })
-                .to(aesopRef.current, { opacity: 0, duration: 0.12 }, 0)
-                .to(flightRef.current, { opacity: 1, duration: 0.12 }, 0)
+                .set(aesopRef.current, { opacity: 0 }, 0)
+                .set(flightRef.current, { opacity: 1 }, 0)
                 .to(
                     flightRef.current,
                     {
@@ -133,8 +220,39 @@ const Hero = () => {
                     },
                     0.06
                 )
-                .to(flightRef.current, { opacity: 0, duration: 0.18 }, 9.7)
-                .to(headerLogo, { opacity: 1, duration: 0.24 }, 9.92)
+                .to(
+                    flightShellRef.current,
+                    {
+                        borderRadius: 999,
+                        duration: 0.52,
+                        ease: 'power2.inOut',
+                    },
+                    9.02
+                )
+                .to(
+                    flightAesopRef.current,
+                    {
+                        scale: 0.985,
+                        xPercent: -0.8,
+                        duration: 0.46,
+                        ease: 'power2.inOut',
+                    },
+                    9.04
+                )
+                .set(flightLogoRef.current, { autoAlpha: 1 }, 9.08)
+                .to(
+                    flightLogoRef.current,
+                    {
+                        clipPath: 'inset(0% 0% 0% 0% round 999px)',
+                        scale: 1,
+                        xPercent: 0,
+                        duration: 0.46,
+                        ease: 'power2.inOut',
+                    },
+                    9.08
+                )
+                .set(headerLogo, { opacity: 1 }, 9.74)
+                .set(flightRef.current, { opacity: 0 }, 9.74)
                 .to(holdState, { value: 1, duration: 1.4 }, 10.24);
         }, sectionRef);
 
@@ -145,7 +263,10 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="hero" ref={sectionRef}>
+        <section
+            className={`hero${isHandoffComplete ? ' hero--handoff-complete' : ''}`}
+            ref={sectionRef}
+        >
             <div className="hero__stage" ref={stageRef}>
                 <div className="hero__bg">
                     <video autoPlay muted loop playsInline className="hero__video">
@@ -166,7 +287,14 @@ const Hero = () => {
                 </div>
 
                 <div className="hero__wordmark-flight" ref={flightRef} aria-hidden="true">
-                    <HeroAesop />
+                    <div className="hero__wordmark-flight-shell" ref={flightShellRef}>
+                        <span className="hero__wordmark-flight-mark" ref={flightAesopRef}>
+                            <HeroAesop />
+                        </span>
+                        <span className="hero__wordmark-flight-mark hero__wordmark-flight-mark--logo" ref={flightLogoRef}>
+                            <HeaderLogo />
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
