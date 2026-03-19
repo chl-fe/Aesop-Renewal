@@ -2,16 +2,17 @@ import React from 'react';
 
 // 메인페이지 섹션 컴포넌트
 // 가이드 기준 섹션 순서 고정: Hero → Intro → Best → Store → Official → Gift → Korea → About → NewArrival → Navigator
-import Hero from '../common/mainpage/Hero';
-import IntroCopy from '../common/mainpage/IntroCopy';
-import BestProductsSection from '../common/mainpage/BestProductsSection';
-import StoreVisualSection from '../common/mainpage/StoreVisualSection';
-import OfficialExclusiveSection from '../common/mainpage/OfficialExclusiveSection';
-import BestGiftSection from '../common/mainpage/BestGiftSection';
-import KoreaExclusiveSection from '../common/mainpage/KoreaExclusiveSection';
-import AboutTeaserSection from '../common/mainpage/AboutTeaserSection';
-import NewArrivalSection from '../common/mainpage/NewArrivalSection';
-import ProductNavigatorSection from '../common/mainpage/ProductNavigatorSection';
+import Hero from '../components/common/mainpage/Hero';
+import IntroCopy from '../components/common/mainpage/IntroCopy';
+import BestProductsSection from '../components/common/mainpage/BestProductsSection';
+import StoreVisualSection from '../components/common/mainpage/StoreVisualSection';
+import OfficialExclusiveSection from '../components/common/mainpage/OfficialExclusiveSection';
+import BestGiftSection from '../components/common/mainpage/BestGiftSection';
+import KoreaExclusiveSection from '../components/common/mainpage/KoreaExclusiveSection';
+import AboutTeaserSection from '../components/common/mainpage/AboutTeaserSection';
+import NewArrivalSection from '../components/common/mainpage/NewArrivalSection';
+import ProductNavigatorSection from '../components/common/mainpage/ProductNavigatorSection';
+import RitualNotesSection from '../components/common/mainpage/RitualNotesSection';
 
 import './Main.scss';
 
@@ -47,6 +48,7 @@ const Main = () => {
 
             {/* 10. Product Navigator: 카테고리 탐색 진입점 */}
             <ProductNavigatorSection />
+            <RitualNotesSection />
         </>
     );
 };
